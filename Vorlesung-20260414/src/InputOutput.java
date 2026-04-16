@@ -34,8 +34,13 @@ public class InputOutput {
     public static void lesenAusDatei() { //Datei lesen mit BufferedReader & GUI
         try {
             BufferedReader reader = new BufferedReader(new FileReader("Test.txt")); //öffnet die Datei Test.txt mit einem BufferedReader und einem FileReader
-            String line = reader.readLine(); //Liest die erste Zeile
-            System.out.println(line); //Gibt sie aus
+            String line = "";
+            while (line != null) {
+                line = reader.readLine(); //Liest die erste Zeile
+                if (line != null) {
+                    System.out.println(line); //Gibt sie aus
+                }
+            }
             reader.close();
         } catch (IOException e) {
             e.printStackTrace();
